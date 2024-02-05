@@ -41,6 +41,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -87,7 +88,8 @@ fun ProfileCard(
                 text = currentUser.name,
                 fontFamily = ubuntuFontFamily,
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp
+                fontSize = 21.sp,
+                color = Color.White
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -97,16 +99,14 @@ fun ProfileCard(
                 label = "bio",
                 transitionSpec = {
                     if (!isShowingFullBio) {
-                        expandVertically(expandFrom = Alignment.Top) togetherWith fadeOut(
-                            animationSpec = tween(1)
-                        )
+                        expandVertically(expandFrom = Alignment.Top) togetherWith
+                                fadeOut(animationSpec = tween(1))
                     } else {
-                        fadeIn(animationSpec = tween(1)) togetherWith shrinkVertically(
-                            shrinkTowards = Alignment.Top
-                        )
+                        fadeIn(animationSpec = tween(1)) togetherWith
+                                shrinkVertically(shrinkTowards = Alignment.Top)
                     }
                 },
-                contentAlignment = Alignment.BottomCenter
+                contentAlignment = Alignment.TopCenter
             ) { isShowingFullBio ->
                 if (!isShowingFullBio) {
                     Text(
@@ -114,9 +114,10 @@ fun ProfileCard(
                         modifier = Modifier
                             .padding(horizontal = 4.dp),
                         fontFamily = andikaFontFamily,
-                        fontSize = 12.sp,
+                        fontSize = 14.sp,
                         overflow = TextOverflow.Ellipsis,
-                        maxLines = 2
+                        maxLines = 2,
+                        color = Color.White
                     )
                 } else {
                     Text(
@@ -124,8 +125,9 @@ fun ProfileCard(
                         modifier = Modifier
                             .padding(horizontal = 4.dp),
                         fontFamily = andikaFontFamily,
-                        fontSize = 12.sp,
-                        overflow = TextOverflow.Ellipsis
+                        fontSize = 14.sp,
+                        overflow = TextOverflow.Ellipsis,
+                        color = Color.White
                     )
                 }
             }
@@ -138,7 +140,7 @@ fun ProfileCard(
                     .padding(horizontal = 4.dp)
                     .border(
                         width = 1.dp,
-                        color = LocalContentColor.current,
+                        color = Color.White,
                         shape = RoundedCornerShape(8.dp)
                     ),
                 verticalAlignment = Alignment.CenterVertically
@@ -153,7 +155,8 @@ fun ProfileCard(
                         imageVector = Icons.Default.Email,
                         contentDescription = null,
                         modifier = Modifier
-                            .size(20.dp)
+                            .size(20.dp),
+                        tint = Color.White
                     )
 
                     Text(
@@ -161,7 +164,8 @@ fun ProfileCard(
                         modifier = Modifier
                             .weight(1f, true)
                             .padding(horizontal = 8.dp),
-                        fontFamily = andikaFontFamily
+                        fontFamily = andikaFontFamily,
+                        color = Color.White
                     )
 
 
@@ -169,7 +173,8 @@ fun ProfileCard(
                         imageVector = Icons.Default.ContentCopy,
                         contentDescription = null,
                         modifier = Modifier
-                            .size(20.dp)
+                            .size(20.dp),
+                        tint = Color.White
                     )
                 }
             }

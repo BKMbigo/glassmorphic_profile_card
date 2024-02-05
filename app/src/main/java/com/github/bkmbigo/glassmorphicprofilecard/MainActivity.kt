@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.github.bkmbigo.glassmorphicprofilecard.presentation.screens.BackgroundProfileScreen
 import com.github.bkmbigo.glassmorphicprofilecard.presentation.screens.BasicProfileScreen
+import com.github.bkmbigo.glassmorphicprofilecard.presentation.screens.HazeBackgroundScreen
 import com.github.bkmbigo.glassmorphicprofilecard.presentation.theme.GlassmorphicProfileCardTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             GlassmorphicProfileCardTheme {
 //                BasicProfileScreen()
-                BackgroundProfileScreen()
+//                BackgroundProfileScreen()
+                HazeBackgroundScreen()
             }
         }
     }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -48,14 +49,15 @@ fun BackgroundProfileScreen() {
 
 }
 
+@Stable
 /** Draws my specified background behind the composable */
 internal fun Modifier.drawMyBackground(): Modifier =
     drawBehind {
 
         drawCircle(
             color = Color.Magenta,
-            radius = 75f,
-            alpha = 0.25f,
+            radius = 75f, /* Decide whether to make size adaptive to screen size */
+            alpha = 0.2f,
             center = Offset(
                 x = size.width * 0.65f,
                 y = size.height * 0.65f
@@ -63,9 +65,9 @@ internal fun Modifier.drawMyBackground(): Modifier =
         )
 
         drawCircle(
-            color = Color(0xFFFB8C00),
+            color = Color.Magenta,
             radius = 75f,
-            alpha = 0.3f,
+            alpha = 0.2f,
             center = Offset(
                 x = size.width * 0.8f,
                 y = size.height * 0.45f
@@ -73,27 +75,15 @@ internal fun Modifier.drawMyBackground(): Modifier =
         )
 
         drawCircle(
-            color = Color.Cyan,
+            color = Color.Magenta,
             radius = 75f,
-            alpha = 0.25f,
+            alpha = 0.2f,
             center = Offset(
                 x = size.width * 0.33f,
                 y = size.height * 0.35f
             )
         )
 
-        generateRandomCenters(
-            count = 600,
-            width = size.width,
-            height = size.height
-        ).forEach {  offset ->
-            drawCircle(
-                color = Color.White,
-                radius = Random.nextFloat() * 2,
-                center = offset,
-                alpha = Random.nextFloat()
-            )
-        }
     }
 
 private fun generateRandomCenters(count: Int, width: Float, height: Float): List<Offset> =
