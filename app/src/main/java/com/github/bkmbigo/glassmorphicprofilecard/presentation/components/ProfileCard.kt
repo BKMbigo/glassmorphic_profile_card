@@ -25,6 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -58,7 +59,7 @@ fun ProfileCard(
     modifier: Modifier = Modifier,
     colors: CardColors = CardDefaults.elevatedCardColors()
 ) {
-    ElevatedCard(
+    Card(
         modifier = modifier,
         colors = colors,
         shape = RoundedCornerShape(12.dp)
