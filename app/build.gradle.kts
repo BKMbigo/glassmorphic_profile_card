@@ -22,16 +22,16 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.androidx.compose.uiToolingPreview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.materialIconsExtended)
+    implementation(libs.chrisbanes.haze)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)
