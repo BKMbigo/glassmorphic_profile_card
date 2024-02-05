@@ -45,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.github.bkmbigo.glassmorphicprofilecard.domain.User
+import com.github.bkmbigo.glassmorphicprofilecard.presentation.components.ProfileCard
 import com.github.bkmbigo.glassmorphicprofilecard.presentation.theme.andikaFontFamily
 import com.github.bkmbigo.glassmorphicprofilecard.presentation.theme.ubuntuFontFamily
 
@@ -64,140 +65,11 @@ fun BasicProfileScreen() {
             contentAlignment = Alignment.Center
         ) {
 
-            ElevatedCard(
+            ProfileCard(
+                currentUser = currentUser,
                 modifier = Modifier
-                    .width(350.dp),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-
-                var isShowingFullBio by remember { mutableStateOf(false) }
-
-                Column(
-                    modifier = Modifier
-                        .padding(horizontal = 4.dp, vertical = 12.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    Image(
-                        painter = painterResource(id = currentUser.profilePhoto),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .size(54.dp)
-                            .clip(RoundedCornerShape(100))
-                    )
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Text(
-                        text = currentUser.name,
-                        fontFamily = ubuntuFontFamily,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp
-                    )
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    AnimatedContent(
-                        targetState = isShowingFullBio,
-                        label = "bio",
-                        transitionSpec = {
-                            if (!isShowingFullBio) {
-                                expandVertically(expandFrom = Alignment.Top) togetherWith fadeOut(
-                                    animationSpec = tween(1)
-                                )
-                            } else {
-                                fadeIn(animationSpec = tween(1)) togetherWith shrinkVertically(
-                                    shrinkTowards = Alignment.Top
-                                )
-                            }
-                        },
-                        contentAlignment = Alignment.BottomCenter
-                    ) { isShowingFullBio ->
-                        if (!isShowingFullBio) {
-                            Text(
-                                text = currentUser.bio,
-                                modifier = Modifier
-                                    .padding(horizontal = 4.dp),
-                                fontFamily = andikaFontFamily,
-                                fontSize = 12.sp,
-                                overflow = TextOverflow.Ellipsis,
-                                maxLines = 2
-                            )
-                        } else {
-                            Text(
-                                text = currentUser.bio,
-                                modifier = Modifier
-                                    .padding(horizontal = 4.dp),
-                                fontFamily = andikaFontFamily,
-                                fontSize = 12.sp,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 4.dp)
-                            .border(
-                                width = 1.dp,
-                                color = LocalContentColor.current,
-                                shape = RoundedCornerShape(8.dp)
-                            ),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 4.dp, vertical = 2.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Email,
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .size(20.dp)
-                            )
-
-                            Text(
-                                text = currentUser.emailAddress,
-                                modifier = Modifier
-                                    .weight(1f, true)
-                                    .padding(horizontal = 8.dp),
-                                fontFamily = andikaFontFamily
-                            )
-
-
-                            Icon(
-                                imageVector = Icons.Default.ContentCopy,
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .size(20.dp)
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Button(
-                        onClick = {
-                            isShowingFullBio = !isShowingFullBio
-                        },
-                        shape = RoundedCornerShape(20)
-                    ) {
-                        Text(
-                            text = if (!isShowingFullBio) {
-                                "Show full bio"
-                            } else {
-                                "Hide bio"
-                            },
-                            fontFamily = andikaFontFamily
-                        )
-                    }
-                }
-            }
+                    .width(300.dp)
+            )
 
         }
     }
