@@ -3,8 +3,6 @@ package com.github.bkmbigo.glassmorphicprofilecard.presentation.components
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
@@ -28,9 +26,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -70,6 +66,7 @@ fun ProfileCard(
 
         Column(
             modifier = Modifier
+                .fillMaxWidth()
                 .padding(horizontal = 4.dp, vertical = 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
@@ -98,14 +95,16 @@ fun ProfileCard(
                 targetState = isShowingFullBio,
                 label = "bio",
                 transitionSpec = {
-                    if (!isShowingFullBio) {
-                        expandVertically(expandFrom = Alignment.Top) togetherWith
-                                fadeOut(animationSpec = tween(1))
-                    } else {
-                        fadeIn(animationSpec = tween(1)) togetherWith
-                                shrinkVertically(shrinkTowards = Alignment.Top)
-                    }
+                    expandVertically(
+                        animationSpec = tween(1500),
+                        expandFrom = Alignment.Top
+                    ) togetherWith shrinkVertically(
+                        animationSpec = tween(1500),
+                        shrinkTowards = Alignment.Top
+                    )
                 },
+                modifier = Modifier
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.TopCenter
             ) { isShowingFullBio ->
                 if (!isShowingFullBio) {
@@ -163,7 +162,7 @@ fun ProfileCard(
                         text = currentUser.emailAddress,
                         modifier = Modifier
                             .weight(1f, true)
-                            .padding(horizontal = 8.dp),
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
                         fontFamily = andikaFontFamily,
                         color = Color.White
                     )
@@ -204,7 +203,9 @@ fun ProfileCard(
 @Composable
 private fun PreviewProfileCard() {
     GlassmorphicProfileCardTheme {
-        Surface {
+        Surface(
+            color = Color.Black
+        ) {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -212,7 +213,10 @@ private fun PreviewProfileCard() {
                 ProfileCard(
                     currentUser = User.localUsers[0],
                     modifier = Modifier
-                        .width(300.dp)
+                        .width(300.dp),
+                    colors = CardDefaults.elevatedCardColors(
+                        containerColor = Color.DarkGray
+                    )
                 )
             }
         }

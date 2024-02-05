@@ -2,7 +2,6 @@ package com.github.bkmbigo.glassmorphicprofilecard.presentation.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,8 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
@@ -79,13 +76,13 @@ fun HazeBackgroundScreen() {
 
             Box(
                 modifier = Modifier
-                    .width(300.dp)
+                    .width(350.dp)
                     .hazeChild(hazeState, shape = RoundedCornerShape(12.dp))
             ) {
                 ProfileCard(
                     currentUser = User.localUsers[0],
                     modifier = Modifier
-                        .width(300.dp),
+                        .fillMaxWidth(),
                     colors = CardDefaults.cardColors(
                         containerColor = Color.Transparent
                     )
