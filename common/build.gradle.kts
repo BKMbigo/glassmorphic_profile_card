@@ -22,41 +22,20 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
                 implementation(compose.components.resources)
             }
         }
 
-        val webMain by creating {
-            dependsOn(commonMain)
-            dependencies {
-
-            }
-        }
-
-        val nonWebMain by creating {
-            dependsOn(commonMain)
-            dependencies {
-                implementation(libs.chrisbanes.haze)
-            }
-        }
-
-        androidMain {
-            dependsOn(nonWebMain)
+        androidMain.dependencies {
+            implementation(libs.chrisbanes.haze)
         }
 
         val desktopMain by getting {
-            dependsOn(nonWebMain)
             dependencies {
                 implementation(compose.desktop.common)
+                implementation(libs.chrisbanes.haze)
             }
-        }
-
-        jsMain {
-
-        }
-
-        val wasmJsMain by getting {
-
         }
     }
 }

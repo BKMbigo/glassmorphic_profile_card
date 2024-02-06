@@ -23,3 +23,6 @@ rootProject.name = "Glassmorphic Profile Card"
 include(":app")
 include(":perf:baselineprofile")
 include(":common")
+include(":desktop")
+include(":web:js")
+include(":web:wasm")

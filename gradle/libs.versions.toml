@@ -15,7 +15,7 @@ androidx-espresso = "3.5.1"
 
 compose-multiplatform = "1.6.0-beta02"
 
-chrisbanes-haze = "0.4.1"
+chrisbanes-haze = "0.5.0"
 androidx-uiautomator = "2.2.0"
 androidx-benchmarkMacroJUnit4 = "1.2.3"
 androidx-baselineprofile = "1.2.3"
@@ -40,7 +40,7 @@ androidx-test-junit4 = { group = "androidx.test.ext", name = "junit", version.re
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
-chrisbanes-haze = { group = "dev.chrisbanes.haze", name = "haze-jetpack-compose", version.ref = "chrisbanes-haze" }
+chrisbanes-haze = { group = "dev.chrisbanes.haze", name = "haze", version.ref = "chrisbanes-haze" }
 androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "androidx-uiautomator" }
 androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "androidx-benchmarkMacroJUnit4" }
 androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "androidx-profileinstaller" }
@@ -49,6 +49,7 @@ androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profi
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 androidTest = { id = "com.android.test", version.ref = "agp" }
