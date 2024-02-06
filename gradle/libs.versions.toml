@@ -13,6 +13,8 @@ androidx-test-ext = "1.1.5"
 junit = "4.13.2"
 androidx-espresso = "3.5.1"
 
+compose-multiplatform = "1.6.0-beta02"
+
 chrisbanes-haze = "0.4.1"
 androidx-uiautomator = "2.2.0"
 androidx-benchmarkMacroJUnit4 = "1.2.3"
@@ -45,6 +47,9 @@ androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profi
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 androidTest = { id = "com.android.test", version.ref = "agp" }
 baselineprofile = { id = "androidx.baselineprofile", version.ref = "androidx-baselineprofile" }
