@@ -20,3 +20,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Glassmorphic Profile Card"
 include(":app")
+include(":perf:baselineprofile")
