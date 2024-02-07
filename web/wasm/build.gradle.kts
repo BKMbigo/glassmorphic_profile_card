@@ -6,6 +6,7 @@ plugins {
 
 kotlin {
     wasmJs {
+        moduleName = "glassmorphic"
         browser()
         binaries.executable()
 

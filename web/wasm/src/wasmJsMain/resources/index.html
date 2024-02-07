@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Glassmorphic Profile</title>
+
+    <link rel="stylesheet" href="loading.css" />
+    <link rel="stylesheet" href="animation.css" />
+
+    <script type="application/javascript" src="skiko.js"></script>
+    <script src="wasm.js"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<canvas id="ComposeTarget"></canvas>
+
+<div class="loading" id="loading">
+    <h2>Glassmorphic Profile Design</h2>
+    <div class="instruction">
+        <p class="instruction-text">Welcome to Glassmorphic Design Wasm version. The application will begin shortly...</p>
+        <div class="animation">
+            <div class="ring"></div>
+        </div>
+        <div class="no-wasm-gc" id="no-wasm-gc">
+            <p class="instruction-text">Oops! Failed to load WASM-gc</p>
+        </div>
+    </div>
+    <h6>Developed using <a href="https://kotl.in/wasm">Kotlin/Wasm</a> and
+        <a href="https://github.com/JetBrains/compose-multiplatform">Compose for Web</a></h6>
+</div>
+
+</body>
+</html>

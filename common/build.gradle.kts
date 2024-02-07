@@ -28,7 +28,7 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(libs.chrisbanes.haze)
+            implementation(libs.chrisbanes.haze.old)
         }
 
         val desktopMain by getting {
@@ -48,6 +48,11 @@ android {
     defaultConfig {
         minSdk = 24
         targetSdk = 34
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
