@@ -1,10 +1,7 @@
 package com.github.bkmbigo.glassmorphicprofilecard.common.presentation.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Surface
@@ -50,11 +47,11 @@ fun HazeBackgroundScreen() {
                     .haze(
                         hazeState = hazeState,
                         /* [backgroundColor] is completely ignored in Compose-multiplatform */
-                        backgroundColor = Color.Black.copy(alpha = 0.6f),
+                        backgroundColor = Color.Black.copy(alpha = 0.8f),
                         hazeStyle = HazeStyle(
-                            tint = Color.DarkGray.copy(alpha = 0.45f),
-                            blurRadius = 25.dp,
-                            noiseFactor = 0.15f
+                            tint = Color.White.copy(alpha = 0.10f),
+                            blurRadius = 20.dp,
+                            noiseFactor = 0.10f
                         )
                     )
             ) {
@@ -80,14 +77,11 @@ fun HazeBackgroundScreen() {
             Box(
                 modifier = Modifier
                     .width(350.dp)
+                    .padding(vertical = 24.dp)
                     .hazeChild(
                         hazeState,
                         shape = RoundedCornerShape(12.dp),
-                        hazeStyle = HazeStyle(
-                            tint = Color.DarkGray.copy(alpha = 0.45f),
-                            blurRadius = 25.dp,
-                            noiseFactor = 0.45f
-                        )
+                        /* [hazeState] is completely ignored on android */
                     )
             ) {
                 ProfileCard(

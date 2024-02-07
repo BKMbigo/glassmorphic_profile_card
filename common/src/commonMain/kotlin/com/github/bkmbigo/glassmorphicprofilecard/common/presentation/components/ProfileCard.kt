@@ -8,7 +8,9 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Email
@@ -87,7 +89,8 @@ fun ProfileCard(
                     )
                 },
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .weight(1f, false),
                 contentAlignment = Alignment.TopCenter
             ) { isShowingFullBio ->
                 if (!isShowingFullBio) {
@@ -102,15 +105,21 @@ fun ProfileCard(
                         color = Color.White
                     )
                 } else {
-                    Text(
-                        text = currentUser.bio,
+                    Column(
                         modifier = Modifier
-                            .padding(horizontal = 4.dp),
-                        fontFamily = myLocalType.AndikaFont,
-                        fontSize = 14.sp,
-                        overflow = TextOverflow.Ellipsis,
-                        color = Color.White
-                    )
+                            .verticalScroll(
+                                state = rememberScrollState()
+                            )
+                    ) {
+                        Text(
+                            text = currentUser.bio,
+                            modifier = Modifier
+                                .padding(horizontal = 4.dp),
+                            fontFamily = myLocalType.AndikaFont,
+                            fontSize = 14.sp,
+                            color = Color.White
+                        )
+                    }
                 }
             }
 
